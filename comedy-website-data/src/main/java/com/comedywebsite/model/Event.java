@@ -3,7 +3,7 @@ package com.comedywebsite.model;
 import java.time.LocalDate;
 
 public class Event extends BaseEntity {
-
+    
     private LocalDate date;
     private String name;
     private String description;

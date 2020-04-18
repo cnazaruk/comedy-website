@@ -1,31 +1,17 @@
 <!DOCTYPE html>
-
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<html lang="en" xmlns:th="http://www.thymeleaf.org" th:replace="~{fragments/layout :: layout(~{::body}, 'about')}">
 <head>
+    <meta charset="UTF-8"/>
     <title>Solent Comedy</title>
-    <meta charset = UTF-8/>
-    <link rel="stylesheet" type="text/css" href="main.css">
-
 </head>
-
-<div class="header">
-    <img src="https://scontent.flhr4-2.fna.fbcdn.net/v/t1.0-9/27857787_1646560032067335_1900283548838406597_n.jpg?_nc_cat=103&_nc_sid=6e5ad9&_nc_ohc=Ui3-4grjk9MAX_lQUT2&_nc_ht=scontent.flhr4-2.fna&oh=343dd1d95691cebabf32473518f41b14&oe=5EBA4FA7"/>
-    <h2>About Page</h2>
-</div>
-
 <body>
-<div class="menu">
-    <ul>
-        <li>Home</li>
-        <li>About</li>
-        <li>Events</li>
-    </ul>
-</div>
+<!--/*@thymesVar id="about" type="guru.springframework.comedy-website.model.About"*/-->
+<h2 th:text="'About'">About page</h2>
 
-<div class="content">
-    <p>Event One</p>
-    <p>Event Two</p>
+<div class="row">
+    <div class=":col-md-12">
+        <img class="img-responsive" src="../static/images/logo.png" th:src="@{/static/images/logo/png}"/>
+    </div>
 </div>
-
 </body>
 </html>

@@ -1,31 +1,30 @@
 <!DOCTYPE html>
-
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<html lang="en" xmlns:th="http://www.thymeleaf.org" th:replace="~{fragments/layout :: layout(~{::body}, 'events')}">
 <head>
+    <meta charset="UTF-8"/>
     <title>Solent Comedy</title>
-    <meta charset = UTF-8/>
-    <link rel="stylesheet" type="text/css" href="main.css">
-
 </head>
-
-<div class="header">
-    <img src="https://scontent.flhr4-2.fna.fbcdn.net/v/t1.0-9/27857787_1646560032067335_1900283548838406597_n.jpg?_nc_cat=103&_nc_sid=6e5ad9&_nc_ohc=Ui3-4grjk9MAX_lQUT2&_nc_ht=scontent.flhr4-2.fna&oh=343dd1d95691cebabf32473518f41b14&oe=5EBA4FA7"/>
-    <h2>Events Page</h2>
-</div>
-
 <body>
-<div class="menu">
-    <ul>
-        <li>Home</li>
-        <li>About</li>
-        <li>Events</li>
-    </ul>
-</div>
+<!--/*@thymesVar id="events" type="guru.springframework.comedy-website.model.Event"*/-->
+<h2 th:text="'Events'">Events page</h2>
 
-<div class="content">
-    <p>Event One</p>
-    <p>Event Two</p>
-</div>
+<table class="table table-striped">
+    <thead>
+    <tr>
+        <th style="width: 200px;">Id</th>
+        <th style="width: 150px;">Event Name</th>
+        <th style="width: 150px;">Event Details</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    <tr th:each="event : ${events}">
+        <td th:text="${event?.id}">1</td>
+        <td th:text="${event?.name}">Joe</td>
+        <td th:text="${event?.description}">Buck</td>
+    </tr>
+    </tbody>
+</table>
 
 </body>
 </html>
