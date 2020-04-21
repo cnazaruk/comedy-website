@@ -1,4 +1,4 @@
-package bootstrap;
+package com.comedywebsite.bootstrap;
 
 import com.comedywebsite.model.Event;
 import com.comedywebsite.services.EventService;

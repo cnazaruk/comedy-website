@@ -1,16 +1,35 @@
 package com.comedywebsite.model;
 
+import javax.persistence.*;
 import java.time.LocalDate;
 
-public class Event extends BaseEntity {
+@Entity
+public class Event {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
     
     private LocalDate date;
     private String name;
-    private String description;
-    private String location;
-    private String image;
 
-    public Event() {
+    @OneToOne(cascade = CascadeType.ALL)
+    private EventDetails eventDetails;
+
+    private String location;
+
+    @Lob
+    private Byte[] image;
+
+    private Category category;
+
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
     }
 
     public LocalDate getDate() {
@@ -29,12 +48,12 @@ public class Event extends BaseEntity {
         this.name = name;
     }
 
-    public String getDescription() {
-        return description;
+    public EventDetails getEventDetails() {
+        return eventDetails;
     }
 
-    public void setDescription(String description) {
-        this.description = description;
+    public void setEventDetails(EventDetails eventDetails) {
+        this.eventDetails = eventDetails;
     }
 
     public String getLocation() {
@@ -45,22 +64,19 @@ public class Event extends BaseEntity {
         this.location = location;
     }
 
-    public String getImage() {
+    public Byte[] getImage() {
         return image;
     }
 
-    public void setImage(String image) {
+    public void setImage(Byte[] image) {
         this.image = image;
     }
 
-    @Override
-    public String toString() {
-        return "Event{" +
-                "date=" + date +
-                ", name='" + name + '\'' +
-                ", description='" + description + '\'' +
-                ", location='" + location + '\'' +
-                ", image='" + image + '\'' +
-                '}';
+    public Category getCategory() {
+        return category;
+    }
+
+    public void setCategory(Category category) {
+        this.category = category;
     }
 }

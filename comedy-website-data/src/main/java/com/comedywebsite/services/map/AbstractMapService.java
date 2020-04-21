@@ -1,7 +1,5 @@
 package com.comedywebsite.services.map;
 
-import com.comedywebsite.model.BaseEntity;
-
 import java.util.*;
 
 public abstract class AbstractMapService<T extends BaseEntity, ID extends Long> {
